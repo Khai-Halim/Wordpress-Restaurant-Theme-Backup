@@ -173,7 +173,7 @@ Tags: Restaurant
 
 .list-row li a {
   display: block;
-  padding: 10px;
+  padding: 15px;
   color: black;
   text-decoration: none;
 }
@@ -184,6 +184,109 @@ Tags: Restaurant
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+#nav-block {
+  position: relative;
+}
+
+#brand span a {
+  display: block;
+  padding: 15px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+}
+
+#burger-input {
+  display: none;
+}
+
+#burger-input:checked ~ #nav-main {
+  display: block;
+}
+
+#burger-label {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 4px;
+  right: 0;
+}
+
+#burger-label > span {
+  display: block;
+  margin: 20px 0;
+  height: 3px;
+  width: 40px;
+  background: black;
+}
+
+#burger-label > span::before {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 40px;
+  background: black;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+#burger-label > span::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 40px;
+  background: black;
+  -webkit-transform: translateY(-13px);
+          transform: translateY(-13px);
+}
+
+#nav-main {
+  height: initial;
+}
+
+#nav-main ul {
+  position: relative;
+}
+
+#nav-main ul a {
+  display: block;
+}
+
+#nav-main ul a:hover {
+  color: #d82626;
+}
+
+@media (max-width: 700px) {
+  #nav-block {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #nav-block #brand {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+  #nav-block #burger-label {
+    display: block;
+  }
+  #nav-block #nav-main {
+    display: none;
+  }
+  #nav-block #nav-main ul {
+    display: block;
+  }
+  #nav-block #nav-main ul li {
+    display: block;
+    text-align: center;
+  }
+  #nav-block #nav-main ul li a {
+    display: block;
+    width: 100%;
+  }
 }
 
 p {
