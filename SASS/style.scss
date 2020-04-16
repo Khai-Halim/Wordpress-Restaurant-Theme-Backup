@@ -5,3 +5,10 @@ Description: A restaurant theme built from scratch
 Version: 1
 Tags: Restaurant
 */
+@import 'colors';
+@import 'classes';
+@import 'default';
+
+p{
+    color: red;
+}
