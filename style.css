@@ -36,6 +36,11 @@ Tags: Restaurant
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 100%;
+}
+
+.center > div {
+  background: black;
 }
 
 .center-x {
@@ -67,15 +72,22 @@ Tags: Restaurant
 
 /*CONTAINERS*/
 .container {
-  width: 90vw;
   max-width: 1000px;
   margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .container-2 {
-  width: 90vw;
-  max-width: 1100px;
-  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 1200px) {
+  .container-2 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 /*LAYOUT*/
@@ -178,6 +190,39 @@ Tags: Restaurant
   text-decoration: none;
 }
 
+/*BANNER*/
+.banner {
+  position: relative;
+  height: 70vh;
+  background: url("images/banner2.jpg");
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  background-size: auto 130%;
+}
+
+@media (max-width: 750px) {
+  .banner {
+    background-size: auto 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .banner {
+    background-size: 100%;
+  }
+}
+
+.banner::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(51, 51, 51, 0.3);
+}
+
 /*DEFAULT STYLING*/
 * {
   margin: 0;
@@ -187,16 +232,33 @@ Tags: Restaurant
   font-family: sans-serif;
 }
 
-#nav-block {
-  position: relative;
+/*SMALLER TEXT FOR MOBILE*/
+@media (max-width: 700px) {
+  :root {
+    font-size: 12px;
+  }
 }
 
-#brand span a {
-  display: block;
-  padding: 15px;
-  font-weight: 600;
-  color: #333;
-  text-decoration: none;
+#nav-block {
+  position: relative;
+  z-index: 99;
+}
+
+#brand a img {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 6rem;
+}
+
+#screen-cover {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -99;
 }
 
 #burger-input {
@@ -207,12 +269,16 @@ Tags: Restaurant
   display: block;
 }
 
+#burger-input:checked ~ #screen-cover {
+  display: block;
+}
+
 #burger-label {
-  display: none;
   cursor: pointer;
+  display: none;
   position: absolute;
   top: 4px;
-  right: 0;
+  right: 1rem;
 }
 
 #burger-label > span {
@@ -226,7 +292,7 @@ Tags: Restaurant
 #burger-label > span::before {
   content: "";
   display: block;
-  height: 3px;
+  height: 100%;
   width: 40px;
   background: black;
   -webkit-transform: translateY(10px);
@@ -236,7 +302,7 @@ Tags: Restaurant
 #burger-label > span::after {
   content: "";
   display: block;
-  height: 3px;
+  height: 100%;
   width: 40px;
   background: black;
   -webkit-transform: translateY(-13px);
@@ -252,6 +318,9 @@ Tags: Restaurant
 }
 
 #nav-main ul a {
+  color: #fdfdfd;
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 2px #333;
   display: block;
 }
 
